@@ -188,7 +188,7 @@ lint: revive
 
 # Generate code
 generate: controller-gen
-	$(GOBIN)/controller-gen object:headerFile=./hack/boilerplate.go.txt paths="./..."
+	$(GOENV) $(GOBIN)/controller-gen object:headerFile=./hack/boilerplate.go.txt paths="./..."
 
 yaml: manifests ensure-kustomize
 	$(KUSTOMIZE_BIN) build config/default > manifests/crd.yaml
